@@ -3,11 +3,7 @@ import React, { Component } from "react";
 class Counter extends Component {
   state = {
     count: 0,
-    tags: ["tag1", "tag2"]
-  };
-
-  handleQuantity = () => {
-    console.log("clicked", this);
+    tags: ["tag"]
   };
 
   renderTags() {
@@ -21,6 +17,11 @@ class Counter extends Component {
     );
   }
 
+  handleQuantity = product => {
+    console.log(product);
+    this.setState({ count: this.state.count + 1 });
+  };
+
   render() {
     if (this.state.tags.length === 0)
       return (
@@ -32,7 +33,7 @@ class Counter extends Component {
       <div className="m-4">
         <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
         <button
-          onClick={this.handleQuantity}
+          onClick={() => this.handleQuantity(this.product)}
           className="btn btn-secondary btn-sm t-2"
         >
           Quantity
@@ -41,8 +42,6 @@ class Counter extends Component {
       </div>
     );
   }
-
-  testCommit()
 
   getBadgeClasses() {
     let classes = "badge m-2 badge-";
