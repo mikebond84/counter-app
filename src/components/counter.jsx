@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 class Counter extends Component {
   state = {
-    count: 0,
+    value: this.props.value,
     tags: ["tag"]
   };
 
@@ -19,10 +19,11 @@ class Counter extends Component {
 
   handleQuantity = product => {
     console.log(product);
-    this.setState({ count: this.state.count + 1 });
+    this.setState({ value: this.state.value + 1 });
   };
 
   render() {
+    console.log("props", this.props);
     if (this.state.tags.length === 0)
       return (
         <div className="m-4">
