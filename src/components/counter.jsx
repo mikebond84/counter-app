@@ -30,7 +30,7 @@ class Counter extends Component {
         {this.props.children}
         <button
           onClick={() => this.decrement()}
-          className="btn btn-warning btn-sm m-3"
+          className="btn btn-info btn-sm m-3 rounded-circle"
         >
           <i className="fas fa-minus" />
         </button>
@@ -41,11 +41,11 @@ class Counter extends Component {
 
         <button
           onClick={() => this.increment()}
-          className="btn btn-primary btn-sm m-3"
+          className="btn btn-primary btn-sm m-3 rounded-circle"
         >
           <i className="fas fa-plus" />
         </button>
-        <button className="btn-danger btn-xs m-4">
+        <button className="btn-danger btn-xs m-4 rounded-bottom">
           <i className="far fa-trash-alt" />
         </button>
         {/* {this.renderTags()} */}
