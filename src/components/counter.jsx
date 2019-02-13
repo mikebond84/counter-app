@@ -29,7 +29,7 @@ class Counter extends Component {
       <div className="m-2">
         {this.props.children}
         <button
-          onClick={() => this.lessQuantity(this.product)}
+          onClick={() => this.decrement()}
           className="btn btn-warning btn-sm m-3"
         >
           <i className="fas fa-minus" />
@@ -40,7 +40,7 @@ class Counter extends Component {
         </span>
 
         <button
-          onClick={() => this.moreQuantity(this.product)}
+          onClick={() => this.increment()}
           className="btn btn-primary btn-sm m-3"
         >
           <i className="fas fa-plus" />
@@ -53,15 +53,23 @@ class Counter extends Component {
     );
   }
 
-  moreQuantity = product => {
-    this.setState{ value: this.state.value + 1 });
-  };
+  increment() {
+    this.setState(prevState => ({
+      value: this.state.value + 1
+    }));
+  }
 
-  lessQuantity = product => {
-    if (this.setState(this.state.value === 0)) {
-      this.setState({ value: 0 });
-    } else this.setState({ value: this.state.value - 1 });
-  };
+  decrement() {
+    if (this.state.value === 0) {
+      this.setState({
+        value: 0
+      });
+    } else {
+      this.setState(prevState => ({
+        value: this.state.value - 1
+      }));
+    }
+  }
 
   getBadgeClasses() {
     let classes = "px-2 mx-auto badge badge-";
