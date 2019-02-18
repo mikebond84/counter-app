@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 class Counter extends Component {
   state = {
-    value: this.props.value
+    value: this.props.counter.value
     // tags: []
   };
 
@@ -45,7 +45,10 @@ class Counter extends Component {
         >
           <i className="fas fa-plus" />
         </button>
-        <button className="btn-danger btn-xs m-4 rounded-bottom">
+        <button
+          onClick={() => this.props.onDelete(this.props.counter.id)}
+          className="btn-danger btn-xs m-4 rounded-bottom"
+        >
           <i className="far fa-trash-alt" />
         </button>
         {/* {this.renderTags()} */}
@@ -72,7 +75,7 @@ class Counter extends Component {
   }
 
   getBadgeClasses() {
-    let classes = "px-2 mx-auto badge badge-";
+    let classes = "px-3 mx-auto badge badge-";
     classes += this.state.value === 0 ? "warning" : "secondary";
     return classes;
   }
