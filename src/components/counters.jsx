@@ -11,6 +11,13 @@ class Counters extends Component {
     this.setState({ counters });
   };
 
+  handleIncrement = counter => {
+    const counters = [...this.state.counters];
+    const index = counters.indexOf(counter);
+    counters[index] = { ...counter };
+    counters[index].value++;
+    this.setState({ counters });
+  };
   render() {
     return (
       <div>
@@ -18,6 +25,7 @@ class Counters extends Component {
           <Counter
             key={counter.id}
             onDelete={this.handleDelete}
+            onIncrement={this.handleIncrement}
             counter={counter}
             // by passing counter object, any properties of the counter
             // are passed along as well, such as value, id, etc.
